@@ -68,10 +68,10 @@ def format_admin_logs(data):
                 i['description']['phone'] ="*****"
             out.append(i)
         else:
-            print("admin logs with description")
+            print("admin logs without description")
             
-        data = '\n'.join([json.dumps(i) for i in out])
-        return data
+    data = '\n'.join([json.dumps(i) for i in out])
+    return data
         
         
             
