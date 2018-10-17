@@ -26,13 +26,13 @@ def fetch_logs(min_time=None, max_time=None):
 
 def fetch_admin_logs(min_time=None):
     admin_logs = admin_api.get_administrator_log(mintime=min_time) 
-    print('Retreived admin Logs.')    
+    print('Retrieved admin Logs.')    
     return admin_logs
 
 
 def fetch_telephony_logs(min_time=None):
     telephony_logs = admin_api.get_telephony_log(mintime=min_time) 
-    print('Retreived Telephony Logs::')    
+    print('Retrieved Telephony Logs::')    
     return telephony_logs
 
 def format_auth_logs(data):
@@ -57,7 +57,7 @@ def format_telephony_logs(data):
 def format_admin_logs(data):
     out= []
     for i in data:
-        if('description' in i):
+        if(i.get('description')):
             i['description'] = json.loads(i['description'])
             if('device' in i['description']):
                 i['description']['device'] = "*****"
